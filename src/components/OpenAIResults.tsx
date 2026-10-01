@@ -78,11 +78,14 @@ export const OpenAIResults: React.FC<OpenAIResultsProps> = ({ onNavigate }) => {
           </div>
 
           <button
-            onClick={() => onNavigate('/app')}
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-medium text-black bg-white hover:bg-neutral-200 transition-colors cursor-pointer w-fit"
+            onClick={() => {
+              const el = document.getElementById('kurs');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="inline-flex items-center gap-1.5 px-6 py-3 rounded-full text-xs font-semibold text-black bg-white hover:bg-neutral-200 transition-all cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.1)] group"
           >
-            <span>O‘z natijangizni sinab ko‘ring</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>Ushbu natijaga erishish uchun kursga yoziling</span>
+            <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
 

@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { OpenAINavbar } from './components/OpenAINavbar';
 import { OpenAIHero } from './components/OpenAIHero';
 import { OpenAIFeatures } from './components/OpenAIFeatures';
+import { OpenAICategoryBanner } from './components/OpenAICategoryBanner';
 import { OpenAICourse } from './components/OpenAICourse';
 import { OpenAIResults } from './components/OpenAIResults';
 import { OpenAIContact } from './components/OpenAIContact';
@@ -56,25 +57,40 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white flex flex-col selection:bg-white/20 selection:text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#000000] text-white flex flex-col selection:bg-white/20 selection:text-white font-sans overflow-x-hidden relative">
+      {/* Persistent OpenAI Background Elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-grid-white opacity-40" />
+        <div className="absolute inset-0 bg-noise opacity-[0.03]" />
+        
+        {/* Subtle Ambient Glows */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px] animate-pulse-soft" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[40%] bg-indigo-600/10 rounded-full blur-[100px] animate-pulse-soft" style={{ animationDelay: '-4s' }} />
+      </div>
+
       {/* OpenAI Sticky Minimal Header with Imkoniyatlar, Kurs, Aloqa */}
-      <OpenAINavbar onNavigate={navigateTo} />
+      <div className="relative z-50">
+        <OpenAINavbar onNavigate={navigateTo} />
+      </div>
 
       {/* Main Experience */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* OpenAI Iconic Hero: "Sizga nima bilan yordam bera olaman?" + Prompt Bar + Pills */}
         <OpenAIHero onNavigate={navigateTo} />
 
         {/* 1. Imkoniyatlar (#features) */}
         <OpenAIFeatures onNavigate={navigateTo} />
 
-        {/* 2. Kurs (#kurs) */}
+        {/* 2. Category Banner (A, B, C, D, E) */}
+        <OpenAICategoryBanner onNavigate={navigateTo} />
+
+        {/* 3. Kurs (#kurs) */}
         <OpenAICourse onNavigate={navigateTo} />
 
-        {/* 3. Natijalarimiz (#natijalar) */}
+        {/* 4. Natijalarimiz (#natijalar) */}
         <OpenAIResults onNavigate={navigateTo} />
 
-        {/* 4. Aloqa (#aloqa) */}
+        {/* 5. Aloqa (#aloqa) */}
         <OpenAIContact />
       </main>
 

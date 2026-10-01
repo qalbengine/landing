@@ -28,32 +28,43 @@ export const OpenAICourse: React.FC<OpenAICourseProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section id="kurs" className="bg-[#000000] text-white py-16 md:py-24 px-6 lg:px-10 border-t border-white/[0.08]">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-2 max-w-xl">
-            <span className="text-xs uppercase tracking-wider text-white/50 font-mono">
-              O‘quv dasturi
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-semibold tracking-tight text-white">
-              Imtihondan 1-urinishda o‘tish kursi.
+    <section id="kurs" className="bg-[#000000]/30 text-white py-16 md:py-28 px-6 lg:px-10 border-t border-white/[0.08] relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-1/4 right-0 w-64 h-64 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div className="space-y-4 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.1em] text-white/50 font-mono animate-float">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Qabul ochiq · A, B, C, D, E barcha toifalar
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-white leading-[1.1]">
+              Imtihon natijasini <br />
+              <span className="text-white/40 italic">100% kafolatlang.</span>
             </h2>
-            <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
-              Yodlashga vaqt sarflamang. Avtotest AI o‘quv kursi har bir qoidani hayotiy misollar va mantiq bilan tushuntiradi.
+            <p className="text-sm sm:text-base text-white/60 leading-relaxed max-w-lg">
+              YHQ testlarini shunchaki yechish kifoya emas. Avtotest AI o‘quv kursi sizga har bir vaziyatning tub mantiqini o‘rgatadi va barcha toifalar (A, B, C, D, E) bo‘yicha birinchi urinishdayoq 20/20 natija olishingizni ta’minlaydi.
             </p>
           </div>
 
-          <button
-            onClick={() => onNavigate('/app')}
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-medium text-black bg-white hover:bg-neutral-200 transition-colors cursor-pointer w-fit"
-          >
-            <span>Kursni bepul boshlash</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex flex-col gap-3">
+            <button
+              onClick={() => onNavigate('/app')}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-medium text-black bg-white hover:bg-neutral-200 transition-all cursor-pointer shadow-[0_0_40px_rgba(255,255,255,0.15)] group"
+            >
+              <span>Kursga yozilish</span>
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+            <p className="text-[11px] text-center text-white/30">
+              * Birinchi dars mutlaqo bepul
+            </p>
+          </div>
         </div>
 
         {/* 3 Course Modules */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {modules.map((m, idx) => (
             <div
               key={idx}
