@@ -1,0 +1,6 @@
+{
+  "name": "Avtotest AI — O'zbekiston Haydovchilik Imtihoni AI Yordamchisi",
+  "description": "Avtotest AI — O'zbekiston haydovchilik nazariy imtihoniga (YHQ) sun'iy intellekt yordamida tayyorlanish platformasi. Savollarni shunchaki yodlamang, AI bilan tushunib o'rganing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
